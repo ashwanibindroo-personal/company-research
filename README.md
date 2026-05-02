@@ -4,7 +4,7 @@ An MCP-powered agentic system that researches companies from the internet, saves
 
 ## Demo
 
-YouTube walkthrough: _coming soon_ <!-- TODO: replace with YouTube URL after upload -->
+YouTube walkthrough: <https://youtu.be/BXiBItuI_yU>
 
 ## Architecture
 
