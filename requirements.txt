@@ -1,0 +1,8 @@
+# MCP Assignment — Company Research Agent
+# Install: pip install -r requirements.txt
+
+mcp
+anthropic
+python-dotenv
+requests
+prefab-ui

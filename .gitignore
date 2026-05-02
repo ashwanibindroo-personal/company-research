@@ -1,0 +1,27 @@
+# Secrets — NEVER commit
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.venv/
+venv/
+env/
+
+# Runtime artifacts (regenerated each run)
+generated_dashboard.py
+prefab_server.log
+research_data/*.json
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Claude Code workspace
+.claude/
