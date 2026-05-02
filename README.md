@@ -2,16 +2,20 @@
 
 An MCP-powered agentic system that researches companies from the internet, saves data locally, and displays results on a live Prefab dashboard.
 
+## Demo
+
+YouTube walkthrough: _coming soon_ <!-- TODO: replace with YouTube URL after upload -->
+
 ## Architecture
 
 ```
-User prompt  -->  Gemini LLM  -->  MCP Server  -->  Results
-                  (router)        (3 tool types)
-                                     |
-                    +----------------+----------------+
-                    |                |                |
-              search_company    save_research    show_dashboard
-              (Wikipedia API)   (JSON files)     (Prefab UI)
+User prompt  -->  Claude (Anthropic)  -->  MCP Server  -->  Results
+                  (router)                 (3 tool types)
+                                              |
+                    +-------------------------+-------------------------+
+                    |                         |                         |
+              search_company             save_research            show_dashboard
+              (Wikipedia API)            (JSON files)             (Prefab UI)
 ```
 
 ## The 3 Required Tool Categories
@@ -28,10 +32,13 @@ User prompt  -->  Gemini LLM  -->  MCP Server  -->  Results
 pip install -r requirements.txt
 ```
 
-Make sure you have `GEMINI_API_KEY` in a `.env` file:
+Copy `.env.example` to `.env` and add your Anthropic API key:
+
 ```
-GEMINI_API_KEY=your_key_here
+ANTHROPIC_API_KEY=sk-ant-api03-...
 ```
+
+Get one at https://console.anthropic.com/settings/keys.
 
 ## Run
 
@@ -42,14 +49,16 @@ python agent.py
 The agent will:
 1. Search Wikipedia for TCS, Infosys, and Wipro
 2. Save each company's data to `research_data/` as JSON
-3. Generate and serve a Prefab dashboard at `http://127.0.0.1:5175`
+3. Generate and serve a Prefab dashboard at <http://127.0.0.1:5175>
+4. Pause at a `Press Enter to stop...` prompt — open the URL in your browser, then press Enter to shut down
 
 ## Files
 
 | File | Purpose |
 |------|---------|
 | `mcp_research_server.py` | MCP server with all 3 tool categories |
-| `agent.py` | Gemini-powered agentic loop |
+| `agent.py` | Claude-powered agentic loop |
 | `requirements.txt` | Python dependencies |
-| `research_data/` | Auto-created directory for saved JSON files |
-| `generated_dashboard.py` | Auto-generated Prefab dashboard |
+| `.env.example` | Template for the Anthropic API key |
+| `research_data/` | Auto-created directory for saved JSON files (git-ignored) |
+| `generated_dashboard.py` | Auto-generated Prefab dashboard (git-ignored) |

@@ -17,6 +17,11 @@ generated_dashboard.py
 prefab_server.log
 research_data/*.json
 
+# Local demo recordings — host on YouTube instead
+*.mp4
+*.mov
+*.webm
+
 # Editor / OS
 .vscode/
 .idea/
